@@ -51,16 +51,41 @@
 // echo minimumConvert($coins);
 // die();
 
-function fib($nbr){
-    if($nbr <= 1){
-        return $nbr;
+// function fib($nbr){
+//     if($nbr <= 1){
+//         return $nbr;
+//     }
+//     return fib($nbr - 1) + fib($nbr - 2);
+// }
+
+// echo fib(1);
+// echo fib(2);
+// echo fib(3);
+// echo fib(4);
+// echo fib(5);
+// echo fib(6);
+
+$matrix = [
+    [1,2,3],
+    [4,5,6]
+];
+
+function transposed($matrix){
+
+    $rows = count($matrix);
+    $cols = count($matrix[0]);
+    $res = [];
+
+    for($j = 0; $j < $cols; $j++){
+        $res[$j] = [];
+        for($i = 0 ; $i < $rows; $i++){
+            $res[$j][$i] = $matrix[$i][$j];
+        }
     }
-    return fib($nbr - 1) + fib($nbr - 2);
+
+    return $res;
+
 }
 
-echo fib(1);
-echo fib(2);
-echo fib(3);
-echo fib(4);
-echo fib(5);
-echo fib(6);
+print_r(transposed($matrix));
+die();
